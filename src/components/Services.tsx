@@ -69,19 +69,6 @@ const items = [
   },
 ];
 
-const ganttTasks = [
-  {
-    category: '',
-    tasks: [
-      { name: 'ヒアリング・要件定義', start: 1, end: 1 },
-      { name: 'MCP設計・開発', start: 2, end: 3 },
-      { name: 'テスト・デプロイ', start: 4, end: 4 },
-      { name: 'ドキュメント納品', start: 4, end: 4 },
-    ],
-  },
-];
-
-const weeks = ['1週目', '2週目', '3週目', '4週目'];
 
 
 function AccordionItem({ item, isOpen, onClick }: {
@@ -102,7 +89,7 @@ function AccordionItem({ item, isOpen, onClick }: {
           <span className="text-xs font-medium text-violet-600 mb-1 block">
             {item.badge}
           </span>
-          <p className={cn("font-medium", isOpen ? "text-violet-700" : "text-[#323232]")}>
+          <p className="font-medium text-[#323232]">
             {item.problem}
           </p>
         </div>
@@ -140,10 +127,15 @@ export function Services() {
   };
 
   return (
-    <Section id="services" variant="default">
-      <Container size="xl">
+    <Section id="services" variant="default" className="relative overflow-hidden">
+      {/* Background decoration */}
+      <div
+        className="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-96 bg-contain bg-no-repeat bg-right"
+        style={{ backgroundImage: 'url(/bg.png)' }}
+      />
+      <Container size="xl" className="relative z-10">
         {/* What MCP Can Do */}
-        <div className="mb-20">
+        <div>
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-light text-[#323232] mb-4">
               自社MCPでできること
@@ -183,57 +175,6 @@ export function Services() {
             </div>
           </div>
         </div>
-
-        {/* Development Flow - Gantt Chart */}
-        <div className="mb-20">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-light text-[#323232] mb-4">
-              開発フロー
-            </h2>
-            <p className="text-gray-600">
-              4週間で納品。御社の負担は合計約7時間
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto overflow-x-auto flex justify-center">
-            <table className="border-separate" style={{ borderSpacing: '3px 3px' }}>
-              {/* Header */}
-              <thead>
-                <tr className="bg-violet-600">
-                  <th className="w-48 text-left py-2"></th>
-                  {weeks.map((week) => (
-                    <th
-                      key={week}
-                      className="text-center py-2 text-sm font-medium text-white w-36"
-                    >
-                      {week}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {ganttTasks[0].tasks.map((task, taskIndex) => (
-                  <tr key={taskIndex}>
-                    {/* Task name */}
-                    <td className="text-sm text-gray-700 py-2 px-4 w-48 bg-gray-100 text-center font-medium">
-                      {task.name}
-                    </td>
-                    {/* Week cells with bars */}
-                    {weeks.map((_, weekIndex) => {
-                      const weekNum = weekIndex + 1;
-                      const isActive = weekNum >= task.start && weekNum <= task.end;
-                      return (
-                        <td key={weekIndex} className="p-0 h-12" style={{ background: isActive ? '#DDD6FE' : '#f9f9f9' }}>
-                        </td>
-                      );
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
       </Container>
     </Section>
   );

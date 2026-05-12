@@ -26,14 +26,14 @@ export function Hero() {
           </span>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light leading-[1.1] tracking-tight mb-8 text-[#323232]">
-            AIと業務システムを
+            AIに話しかけるだけで
             <br />
-            シームレスに接続
+            業務が完了する会社へ
           </h1>
 
           <p className="text-lg sm:text-xl text-[#323232] leading-relaxed mb-12 max-w-2xl">
-            Model Context Protocol（MCP）で、社内システムとAIの連携を実現。
-            セキュアで拡張性の高いエンタープライズソリューションを提供します。
+            MCPで社内システムとAIをつなぎ、複雑な業務もAIへの一言で完結。
+            事前に詳細なスケジュールを共有し開発。完全納品契約で安心してお任せください。
           </p>
 
           <Link href="#download">
