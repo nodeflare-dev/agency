@@ -5,28 +5,16 @@ const footerLinks = {
   services: {
     title: 'サービス',
     links: [
-      { label: 'データ連携MCP', href: '#services' },
-      { label: '業務自動化MCP', href: '#services' },
-      { label: 'セキュアMCP', href: '#services' },
-      { label: 'カスタマーサポートMCP', href: '#services' },
+      { label: '自社MCPでできること', href: '#services' },
+      { label: '選ばれる理由', href: '#features' },
+      { label: '開発フロー', href: '#features' },
     ],
   },
-  company: {
-    title: '会社情報',
+  info: {
+    title: '情報',
     links: [
-      { label: '会社概要', href: '#' },
-      { label: 'ブログ', href: '#' },
-      { label: '採用情報', href: '#' },
+      { label: 'お知らせ', href: '#cases' },
       { label: 'お問い合わせ', href: '#contact' },
-    ],
-  },
-  resources: {
-    title: 'リソース',
-    links: [
-      { label: 'ドキュメント', href: '#' },
-      { label: '導入事例', href: '#cases' },
-      { label: '料金プラン', href: '#pricing' },
-      { label: 'FAQ', href: '#' },
     ],
   },
 };
@@ -35,7 +23,7 @@ export function Footer() {
   return (
     <footer className="bg-violet-50 text-gray-600 pt-16 pb-8">
       <Container size="xl">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-12">
           {/* Logo and description */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">

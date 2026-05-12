@@ -1,5 +1,6 @@
 export { Header } from './Header';
 export { Hero } from './Hero';
+export { Notice } from './Notice';
 export { BlogSection } from './BlogSection';
 export { Services } from './Services';
 export { Features } from './Features';
