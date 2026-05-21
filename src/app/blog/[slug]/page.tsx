@@ -107,7 +107,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
                   )}
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl font-semibold text-[#323232] mb-6">
+                <h1 className="text-2xl sm:text-3xl font-light text-[#323232] mb-6">
                   {post.title}
                 </h1>
 
@@ -160,7 +160,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
 
             {relatedPosts.length > 0 && (
               <div className="mt-16 pt-10 border-t border-gray-100">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">
+                <h2 className="text-xl font-light text-[#323232] mb-6">
                   他の記事
                 </h2>
                 <div className="grid gap-6">
