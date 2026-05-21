@@ -33,10 +33,10 @@ const blogs = [
 
 export function Cases() {
   return (
-    <Section id="cases" variant="gray" className="relative overflow-hidden pt-8 lg:pt-12">
-      {/* Background decoration */}
+    <Section id="cases" variant="gray" className="relative pt-8 lg:pt-12">
+      {/* Background decoration - extends into footer */}
       <div
-        className="absolute -left-4 -bottom-40 w-64 h-96 bg-contain bg-no-repeat bg-left-bottom scale-y-[-1]"
+        className="absolute -left-4 bottom-0 translate-y-[70%] w-72 h-[500px] bg-contain bg-no-repeat bg-left-bottom scale-y-[-1] pointer-events-none"
         style={{ backgroundImage: 'url(/bg2.png)' }}
       />
       <Container size="xl" className="relative z-10">
