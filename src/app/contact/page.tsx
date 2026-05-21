@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { Send, Mail } from 'lucide-react';
+import Link from 'next/link';
 import { Header, Footer } from '@/components';
 import { Container } from '@/components/ui/Container';
 
@@ -31,13 +33,6 @@ export default function ContactPage() {
 
       if (response.ok) {
         setSubmitStatus('success');
-        setFormData({
-          company: '',
-          name: '',
-          email: '',
-          phone: '',
-          inquiry: '',
-        });
       } else {
         setSubmitStatus('error');
       }
@@ -53,6 +48,34 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // 送信完了画面
+  if (submitStatus === 'success') {
+    return (
+      <>
+        <Header />
+        <main className="pt-24 pb-20">
+          <Container size="xl">
+            <div className="max-w-2xl mx-auto text-center py-16">
+              <div className="flex flex-col gap-8 text-xl sm:text-2xl text-[#323232] font-light">
+                <span className="flex items-center justify-center gap-3">
+                  <Mail className="w-6 h-6 text-violet-600" strokeWidth={1.5} />
+                  お問い合わせありがとうございます。
+                </span>
+                <span>この度は、NodeFlareにお問い合わせいただき、</span>
+                <span>誠にありがとうございます。</span>
+                <span>内容を確認のうえ、担当者より</span>
+                <span>2営業日以内にご連絡いたします。</span>
+                <span>何卒よろしくお願い申し上げます。</span>
+                <span className="mt-8 pt-8 border-t border-gray-400 text-lg text-[#323232]">NodeFlare株式会社　一同より</span>
+              </div>
+            </div>
+          </Container>
+        </main>
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Header />
@@ -65,12 +88,6 @@ export default function ContactPage() {
             <p className="text-gray-600 mb-12">
               MCP導入のご相談、お見積り依頼など、お気軽にお問い合わせください。
             </p>
-
-            {submitStatus === 'success' && (
-              <div className="bg-green-50 border border-green-200 text-green-700 px-6 py-4 rounded-lg mb-8">
-                お問い合わせを受け付けました。担当者より折り返しご連絡いたします。
-              </div>
-            )}
 
             {submitStatus === 'error' && (
               <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg mb-8">
@@ -161,9 +178,10 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-violet-600 hover:bg-violet-700 disabled:bg-violet-400 text-white font-medium py-4 px-8 rounded-lg transition-colors"
+                className="w-full bg-violet-600 hover:bg-violet-700 disabled:bg-violet-400 text-white font-medium py-3 px-8 rounded-lg transition-colors border border-violet-700 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? '送信中...' : '送信する'}
+                <Send size={18} />
               </button>
             </form>
           </div>
