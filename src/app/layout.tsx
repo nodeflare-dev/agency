@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'MCP開発受託 | nodeflare',
   description: '企業向けMCP（Model Context Protocol）サーバー開発。AIと業務システムをシームレスに連携し、業務効率化を実現します。',
   keywords: ['MCP', 'Model Context Protocol', 'AI', 'Claude', 'エンタープライズ', '業務効率化', 'システム連携'],
+  icons: {
+    icon: '/favicon.png',
+  },
   openGraph: {
     title: 'MCP開発受託 | nodeflare',
     description: '企業向けMCP（Model Context Protocol）サーバー開発',

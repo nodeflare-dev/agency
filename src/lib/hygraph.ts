@@ -1,7 +1,32 @@
 import 'server-only';
+import sanitizeHtmlLib from 'sanitize-html';
 
 const HYGRAPH_ENDPOINT = process.env.HYGRAPH_ENDPOINT || 'https://api-us-west-2.hygraph.com/v2/cmmky48hh00h006w5q885vkcf/master';
 const HYGRAPH_TOKEN = process.env.HYGRAPH_TOKEN;
+
+const SANITIZE_CONFIG: sanitizeHtmlLib.IOptions = {
+  allowedTags: [
+    'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+    'p', 'br', 'hr',
+    'ul', 'ol', 'li',
+    'blockquote', 'pre', 'code',
+    'a', 'strong', 'em', 'u', 's', 'sub', 'sup',
+    'table', 'thead', 'tbody', 'tr', 'th', 'td',
+    'img', 'figure', 'figcaption',
+    'div', 'span',
+  ],
+  allowedAttributes: {
+    'a': ['href', 'title', 'target', 'rel'],
+    'img': ['src', 'alt', 'title', 'width', 'height'],
+    '*': ['class', 'id'],
+  },
+  disallowedTagsMode: 'discard',
+};
+
+export function sanitizeHtml(html: string): string {
+  if (!html) return '';
+  return sanitizeHtmlLib(html, SANITIZE_CONFIG);
+}
 
 export interface Author {
   id: string;
