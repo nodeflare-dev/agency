@@ -10,8 +10,8 @@ import { Button } from './ui/Button';
 const navItems = [
   { label: 'サービス', href: '#services' },
   { label: '特徴', href: '#features' },
-  { label: '導入事例', href: '#cases' },
-  { label: '開発フロー', href: '#flow' },
+  { label: 'ブログ', href: '/blog' },
+  { label: 'よくある質問', href: '/qa' },
 ];
 
 export function Header() {
@@ -57,7 +57,7 @@ export function Header() {
         </div>
 
         {/* CTA Button - 右端にくっつける */}
-        <Link href="#contact" className="hidden lg:block h-full">
+        <Link href="/contact" className="hidden lg:block h-full">
           <button className="h-full px-8 bg-gradient-to-r from-violet-500 to-violet-700 text-white font-semibold text-sm hover:from-violet-600 hover:to-violet-800 transition-all">
             お問い合わせ
           </button>
